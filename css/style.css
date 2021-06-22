@@ -100,7 +100,6 @@ a {
 .cursor {
   width: 2rem;
   height: 2rem;
-  /* background: #fff; */
   border-radius: 50%;
   position: absolute;
   z-index: 99999999;
@@ -110,7 +109,6 @@ a {
 }
 .cursor:after {
   content: "drag";
-  /* line-height: 40px; */
   border: none;
   font-size: 16px;
   color: #fff;
@@ -914,7 +912,7 @@ section .introduce a:hover span:nth-child(4) {
 /* ------------------------------------------------------------ */
 .section_portfolio {
   background: #141416;
-  width: 1920px;
+  /* width: 1920px; */
   height: 100vh;
   /* overflow: hidden; */
   padding: 80px 0px 150px 0px;
