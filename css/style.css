@@ -663,6 +663,17 @@ section .introduce a:hover span:nth-child(4) {
   );
   border-color: #d90046;
 }
+/* bug */
+.section_about .work:hover .pink2 {
+  background: repeating-linear-gradient(
+    #fff,
+    #fff 3px,
+    transparent 3px,
+    transparent 6px
+  );
+  border-color: #fff;
+}
+
 .box .title {
   color: #fff;
   padding: 1rem;
@@ -678,6 +689,15 @@ section .introduce a:hover span:nth-child(4) {
     transparent 6px
   );
   border-color: #0f013d;
+}
+.section_about .work:hover .blue2 {
+  background: repeating-linear-gradient(
+    #fff,
+    #fff 3px,
+    transparent 3px,
+    transparent 6px
+  );
+  border-color: #fff;
 }
 /* --------------------------------------------------------- */
 .section_skill {
