@@ -544,20 +544,123 @@ section .introduce a:hover span:nth-child(4) {
 .section_about .work:hover .card_form-to {
   color: #fff;
 }
-
-.section_about .work.experience {
-  width: 600px;
-  height: 230px;
-  padding-right: 1rem;
-}
-.section_about .work.experience_sec {
-  width: 600px;
-  height: 150px;
-  padding-right: 1rem;
+/* --------------------------------------------------------- */
+.card_stacked {
+  display: flex;
   margin-top: 1rem;
+}
+.exp_card {
+  width: 500px;
+  height: 400px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --distance: -130px;
+  transition: 0.3s;
+  position: relative;
+}
+.exp_card .exp_card_path {
+  position: absolute;
+  width: 3px;
+  height: 85%;
+  background: #ba68c8;
+  left: 20px;
+  top: 30px;
+  border-radius: 1rem;
+}
+.exp_card .exp_card_path.pink {
+  background: #ff3cac;
+}
+.exp_card_path.pink::before {
+  background: #ff3cac;
+}
+.exp_card .exp_card_path.blue {
+  background: #2b86c5;
+}
+.exp_card_path.blue::before {
+  background: #2b86c5;
+}
+.exp_card_path::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ba68c8;
+}
+.exp_card .exp_card_time {
+  position: absolute;
+  font-size: 14px;
+  left: 50px;
+  top: 30px;
+  color: #ba68c8;
+  font-weight: 500;
+}
+.exp_card .exp_card_time.pink1 {
+  color: #ff3cac;
+}
+.exp_card .exp_card_time.blue1 {
+  color: #2b86c5;
+}
+.exp_card .exp_card_job {
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  color: #ba68c8;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.exp_card .exp_card_job.pink2 {
+  color: #ff3cac;
+}
+.exp_card .exp_card_job.blue2 {
+  color: #2b86c5;
+}
+.exp_card .exp_card_job p {
+  font-size: 10px;
+  color: #b5b5b5;
+}
+.exp_card div:nth-child(4) {
+  top: 100px;
+}
+.exp_card div:nth-child(5) {
+  top: 60px;
+  left: 150px;
+}
+.exp_card .exp_card_line {
+  position: absolute;
+  left: 45px;
+  top: 140px;
+  width: calc(90% - 20px);
+  height: 1px;
+  background: #ececec;
+}
+.exp_card .exp_card_detail {
+  font-size: 14px;
+  position: absolute;
+  left: 50px;
+  top: 150px;
+  padding-right: 20px;
+}
+.exp_card:nth-child(3) > p {
+  top: 110px;
+}
+/* --------------------------------------------------- */
+.exp_card:not(:first-child) {
+  margin-left: var(--distance);
+}
+.exp_card:hover,
+.exp_card:focus-within {
+  transform: translateY(-1rem);
+}
+.exp_card:hover ~ .exp_card,
+.exp_card:focus-within ~ .exp_card {
+  transform: translateX(calc(var(--distance) * -1));
 }
 
 /* --------------------------------------------------------- */
+
 .education_wrap .card_wrap .card_side {
   position: fixed;
   left: 0;
@@ -631,72 +734,12 @@ section .introduce a:hover span:nth-child(4) {
 .education_wrap .card_wrap .card_school p:first-child {
   margin-bottom: 15px;
 }
-.education_wrap .card_wrap .card_school .type {
-  position: absolute;
-  top: 170px;
-  color: #b5b5b5;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-.education_wrap .card_wrap .card_school .type.type2 {
-  top: 90px;
-}
-.education_wrap .card_wrap .card_school .type:nth-child(3) {
-  position: absolute;
-  left: 120px;
-}
-.education_wrap .card_wrap .card_school .type:nth-child(4) {
-  position: absolute;
-  left: 340px;
-}
-.education_wrap .card_wrap .card_side.pink {
-  background: #d90046;
-}
-.education_wrap .card_wrap .card_path.pink2 {
-  background: repeating-linear-gradient(
-    #d90046,
-    #d90046 3px,
-    transparent 3px,
-    transparent 6px
-  );
-  border-color: #d90046;
-}
-/* bug */
-.section_about .work:hover .pink2 {
-  background: repeating-linear-gradient(
-    #fff,
-    #fff 3px,
-    transparent 3px,
-    transparent 6px
-  );
-  border-color: #fff;
-}
 
 .box .title {
   color: #fff;
   padding: 1rem;
 }
-.education_wrap .card_wrap .card_side.blue {
-  background: #0f013d;
-}
-.education_wrap .card_wrap .card_path.blue2 {
-  background: repeating-linear-gradient(
-    #0f013d,
-    #0f013d 3px,
-    transparent 3px,
-    transparent 6px
-  );
-  border-color: #0f013d;
-}
-.section_about .work:hover .blue2 {
-  background: repeating-linear-gradient(
-    #fff,
-    #fff 3px,
-    transparent 3px,
-    transparent 6px
-  );
-  border-color: #fff;
-}
+
 /* --------------------------------------------------------- */
 .section_skill {
   background: #141416;
