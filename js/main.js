@@ -201,7 +201,7 @@ window.addEventListener('scroll',function(e){
 //
 const $win = $(window),
     current_pos = $win.scrollTop();
-    var scrollTop = $('.section_portfolio').offset().top;
+var scrollTop = $('.section_portfolio').offset().top;
 const navbar = document.querySelector('.navbar');
 if(current_pos>scrollTop-100){
     navbar.addEventListener('mouseover',function(){

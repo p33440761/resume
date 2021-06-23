@@ -102,7 +102,7 @@ a {
   height: 2rem;
   border-radius: 50%;
   position: absolute;
-  z-index: 99999999;
+  z-index: 9999999999;
   pointer-events: none;
   transform: translate(-50%, -50%);
   display: none;
@@ -310,9 +310,10 @@ section .introduce .link {
   cursor: pointer;
   transition: 0.5s;
   color: #fff;
+  margin-right: 1rem;
 }
 section .introduce .link:hover {
-  color: #d90046;
+  transform: scale(1.2);
 }
 /* ------------------------------------------------- */
 section .introduce a.cvBtn {
@@ -826,7 +827,6 @@ section .introduce a:hover span:nth-child(4) {
   top: 70%;
   left: 85%;
   font-size: 96px;
-  /* bug  */
 }
 .container .card:hover .icon-adobeillustrator:before {
   color: #ff7c00;
@@ -981,14 +981,7 @@ section .introduce a:hover span:nth-child(4) {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  /* margin-right: 200px; */
-  /* z-index: 998; */
-  /* height: 1000px; */
 }
-/* .active {
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
-} */
 .portfolio_card {
   width: 500px;
   height: 420px;
