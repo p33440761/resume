@@ -1,10 +1,7 @@
-var s = skrollr.init();
-
-
 // github icon
 const bounce = document.querySelectorAll('.info_wrap a');
 
-console.log(bounce)
+
 bounce.forEach(item=>{
         item.addEventListener('mouseover',function(){
            item.classList.add('animate__bounce');
@@ -14,12 +11,15 @@ bounce.forEach(item=>{
         });
     })
 
-//nav section
+//window scroll event
 
 $(window).on("scroll", function () {
     const $win = $(window),
     winH = $win.height(),
     current_pos = $win.scrollTop();
+
+    //nav section
+
     $('section').each(function(){
         const section = $(this);
         const num = section.attr('data-scroll-target');
@@ -32,7 +32,39 @@ $(window).on("scroll", function () {
         }
        
     });
-    
+
+    //section3 show animate
+
+    let scrollTop3 = $('.section_skill').offset().top;
+    if(current_pos>scrollTop3-100){
+        var tl = anime.timeline({
+            duration: 750
+        });
+        tl.add({
+            targets: '.slide .container',
+            opacity: 1,
+            delay: function(el, i, l) {
+                return i * 100;
+            }
+        });
+        tl.add({
+            targets: '.slide1 .container',
+            opacity: 1,
+            delay: function(el, i, l) {
+                return i * 100;
+            }
+        });
+    }
+
+    // show drag cursor when in section4
+    let scrollTopPort = $('.section_portfolio').offset().top;
+    if(current_pos>scrollTopPort-200){
+        $('.cursor').css('display','block');
+        $('body').css('cursor','none');
+    }else{
+        $('.cursor').css('display','none');
+        $('body').css('cursor','default');
+    }
 });
 
 
@@ -45,6 +77,7 @@ $('.nav-link').click(function(e){
         $('body, html').animate({scrollTop: scrollTo+'px'},800);
     }
 });
+
 //nav-link 變色
 $('.listing').click(function(){
     $(this).addClass('neon');
@@ -102,21 +135,16 @@ let scrollLeft;
 
 slider.addEventListener("mousedown", e => {
   isDown = true;
-//   slider.classList.add("active");
   startX = e.pageX - slider.offsetLeft;
   scrollLeft = slider.scrollLeft;
-//   console.log(startX)
-//   console.log(scrollLeft)
 });
 
 slider.addEventListener("mouseleave", () => {
   isDown = false;
-//   slider.classList.remove("active");
 });
 
 slider.addEventListener("mouseup", () => {
   isDown = false;
-//   slider.classList.remove("active");
 });
 
 slider.addEventListener("mousemove", e => {
@@ -125,42 +153,20 @@ slider.addEventListener("mousemove", e => {
   const x = e.pageX - slider.offsetLeft;
   const walk = x - startX;
   slider.scrollLeft = scrollLeft - walk;
-//   console.log(x)
-//   console.log(walk)
-//   console.log( slider.scrollLeft)
 });
 
-//hoevr card display none
-    card = document.querySelectorAll('.portfolio_card');
+//hoevr card drag cursor display none
+card = document.querySelectorAll('.portfolio_card');
 
-    card.forEach(item=>{
-        item.addEventListener('mouseover',function(){
-            mouseCursor.classList.remove('cursor');
-        });
-        item.addEventListener('mouseleave',function(){
-            mouseCursor.classList.add('cursor');
-        });
-    })
-    // card.addEventListener('mouseover',function(){
-    //     $('.cursor').css('display','none');
-    // })
+card.forEach(item=>{
+    item.addEventListener('mouseover',function(){
+        mouseCursor.classList.remove('cursor');
+    });
+    item.addEventListener('mouseleave',function(){
+        mouseCursor.classList.add('cursor');
+    });
+})
 
-
-// show cursor when in section4
-window.addEventListener('scroll',function(e){
-    const $win = $(window),
-    current_pos = $win.scrollTop();
-    var scrollTop = $('.section_portfolio').offset().top;
-    if(current_pos>scrollTop-200){
-        $('.cursor').css('display','block');
-        $('body').css('cursor','none');
-    }else{
-        $('.cursor').css('display','none');
-        $('body').css('cursor','default');
-    }
-    // console.log(current_pos)
-    // console.log(scrollTop)
-});
 
 // cursor
 let mouseCursor = document.querySelector('.cursor');
@@ -170,40 +176,17 @@ mouseCursor.style.top = e.pageY + 'px';
 mouseCursor.style.left = e.pageX + 'px';
 }
 
-//
-
-
-window.addEventListener('scroll',function(e){
-    const $win = $(window),
-    current_pos = $win.scrollTop();
-    var scrollTop3 = $('.section_skill').offset().top;
-    if(current_pos>scrollTop3-100){
-        var tl = anime.timeline({
-            duration: 750
-        });
-        tl.add({
-            targets: '.slide .container',
-            opacity: 1,
-            delay: function(el, i, l) {
-                return i * 100;
-            }
-        });
-        tl.add({
-            targets: '.slide1 .container',
-            opacity: 1,
-            delay: function(el, i, l) {
-                return i * 100;
-            }
-        });
-    }
-})
 
 //
 const $win = $(window),
     current_pos = $win.scrollTop();
-var scrollTop = $('.section_portfolio').offset().top;
+let scrollTopPort = $('.section_portfolio').offset().top;
+
+
 const navbar = document.querySelector('.navbar');
-if(current_pos>scrollTop-100){
+
+
+if(current_pos>scrollTopPort-100){
     navbar.addEventListener('mouseover',function(){
     mouseCursor.classList.remove('cursor')
 })
